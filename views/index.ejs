@@ -1,0 +1,45 @@
+<!--index.ejs-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="stylesheet.css">
+        <title>nodejs cloud demonstration</title>
+    </head>
+    <body>
+      <center>
+        <h1>List of code product</h1>
+        <!--add report-->
+        <p>Add a new product</p>
+        <form action="/reports" method="POST">
+            <input type="text" placeholder="store location" name="storeLocation">
+            <input type="date" name="month">
+            <input type="number" placeholder="total revenue" name="totalRevenue">
+            <button type="submit">submit</button>
+        </form>
+ 
+        <!--reccord list-->
+        <p>
+        <table class="reports">
+            <tr>
+                <th>Record ID</th>
+                <th>Store location</th>
+                <th>Date</th>
+                <th>Total revenue</th>
+            </tr>
+            
+            <% for(var i = 0; i < reports.length; i++) { %>
+                <tr class="reports">
+                    <td class="reports"><%= reports[i]._id %></td>
+                    <td class="reports"><%= reports[i].storeLocation %></td>
+                    <td class="reports"><%= reports[i].month %></td>
+                    <td class="reports"><%= reports[i].totalRevenue %></td>
+                </tr>
+            <% } %>
+        </table>
+        </p>
+      </center>
+    </body>
+</html>
